@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import About from "../About/About";
@@ -31,9 +32,13 @@ export default function Hero(){
 
      <div className={styles.actions}>
 
-      <button className={styles.button}>
-       Get AyakaUI
-      </button>
+<Link 
+ href="/devices"
+ className={styles.button}
+>
+ Get AyakaUI
+</Link>
+
 
       <button
        className={styles.secondary}

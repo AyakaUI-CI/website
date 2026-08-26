@@ -1,20 +1,47 @@
 import Navbar from "@/components/Navbar/Navbar";
-import Devices from "@/components/Devices/Devices";
 import Footer from "@/components/Footer/Footer";
 
+import Devices from "@/components/Devices/Devices";
 
-export default function DevicesPage(){
+import {
+ getDevices
+} from "@/lib/api";
 
- return(
-  <>
-   <Navbar/>
 
-   <main>
-    <Devices/>
-   </main>
 
-   <Footer/>
-  </>
- )
+export default async function DevicesPage(){
+
+
+const data =
+ await getDevices();
+
+
+
+return(
+
+<>
+
+<Navbar/>
+
+
+<main>
+
+<Devices
+
+devices={
+ data.devices
+}
+
+/>
+
+</main>
+
+
+<Footer/>
+
+
+</>
+
+)
 
 }

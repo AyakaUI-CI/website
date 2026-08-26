@@ -1,65 +1,197 @@
 "use client";
 
-import devices from "@/data/devices.json";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
 import styles from "./Devices.module.css";
 
 
-export default function Devices(){
+export default function Devices({
+ devices
+}:{
+ devices:any[]
+}){
 
- return(
-  <section className={styles.devices}>
+
+const [selectedOEM,setSelectedOEM] = useState("All");
 
 
-   <span className={styles.label}>
-    Devices
+
+const oems = [
+ "All",
+ ...new Set(
+  devices.map(
+   device => device.vendor
+  )
+ )
+];
+
+
+
+const filteredDevices =
+
+selectedOEM === "All"
+
+?
+
+devices
+
+:
+
+devices.filter(
+ device =>
+ device.vendor === selectedOEM
+);
+
+
+
+return(
+ <section className={styles.devices}>
+
+
+  <span className={styles.label}>
+   Supported Devices
+  </span>
+
+
+
+  <h1 className={styles.title}>
+   Choose your
+   <span> device</span>
+  </h1>
+
+
+
+  <p className={styles.subtitle}>
+   Get the latest AyakaUI build for your device.
+  </p>
+
+
+
+
+  <div className={styles.select}>
+
+
+   <span>
+    Select your OEM
    </span>
 
 
-   <h1 className={styles.title}>
-    Supported
-    <span> Devices</span>
-   </h1>
+
+   <div className={styles.oems}>
 
 
-   <p className={styles.subtitle}>
-    Download AyakaUI builds for your device.
-   </p>
+    {
+     oems.map(
+      vendor=>(
+
+       <button
+
+        key={vendor}
+
+        className={
+         selectedOEM === vendor
+         ?
+         styles.selected
+         :
+         ""
+        }
 
 
+        onClick={()=>
+         setSelectedOEM(vendor)
+        }
 
-   <div className={styles.filters}>
+       >
 
+        {vendor}
 
-    <button>
-     Motorola
-    </button>
+       </button>
 
-
-    <button>
-     Select your device
-    </button>
+      )
+     )
+    }
 
 
    </div>
 
 
+  </div>
 
-   <div className={styles.list}>
 
 
-    {
-     devices.map((device)=>(
 
-      <div
-       className={styles.card}
+
+  <div className={styles.list}>
+
+
+   {
+    filteredDevices
+
+    .filter(
+     device=>device.active
+    )
+
+    .map(
+     (device,index)=>(
+
+
+      <motion.div
+
+
        key={device.codename}
+
+
+       className={styles.card}
+
+
+
+       initial={{
+        opacity:0,
+        y:40
+       }}
+
+
+
+       whileInView={{
+        opacity:1,
+        y:0
+       }}
+
+
+
+       transition={{
+        duration:.5,
+        delay:index*.1
+       }}
+
+
+
+       viewport={{
+        once:true
+       }}
+
+
+
       >
 
 
-       <img
-        src={device.image}
-        alt={device.name}
-       />
+
+       <div className={styles.phone}>
+
+
+        <img
+
+         src="/devices/phone.webp"
+
+         alt={device.model}
+
+        />
+
+
+       </div>
+
+
 
 
 
@@ -67,76 +199,103 @@ export default function Devices(){
 
 
         <h2>
-         {device.name}
+         {device.model}
         </h2>
 
 
-        <span>
+
+        <span className={styles.codename}>
          {device.codename}
         </span>
+
+
 
 
 
         <div className={styles.details}>
 
 
-         <div>
-          <small>
-           Android
-          </small>
+         <p>
+          Vendor:
 
-          <b>
-           {device.android}
-          </b>
-         </div>
+          <strong>
+           {device.vendor}
+          </strong>
 
-
-
-         <div>
-          <small>
-           Status
-          </small>
-
-          <b>
-           {device.status}
-          </b>
-         </div>
+         </p>
 
 
 
-         <div>
-          <small>
-           Maintainer
-          </small>
+         <p>
+          Version:
 
-          <b>
-           {device.maintainer}
-          </b>
-         </div>
+          <strong>
+           {device.version}
+          </strong>
+
+         </p>
+
+
+
+         <p>
+          Release:
+
+          <strong>
+           {device.release}
+          </strong>
+
+         </p>
+
+
+
+         <p>
+          Maintainer:
+
+          <strong>
+           {device.maintainer_name}
+          </strong>
+
+         </p>
+
 
 
         </div>
 
 
 
-        <button className={styles.download}>
-         Download
-        </button>
+
+
+        <Link
+
+         href={`/download/${device.codename}`}
+
+         className={styles.downloadButton}
+
+        >
+
+         Download Latest Build
+
+        </Link>
+
 
 
        </div>
 
 
-      </div>
-
-     ))
-    }
+      </motion.div>
 
 
-   </div>
+     )
+    )
+   }
 
 
-  </section>
- )
+
+  </div>
+
+
+
+ </section>
+)
 
 }

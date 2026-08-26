@@ -30,7 +30,7 @@
  border-radius:40px;
 
 
- background:rgba(255,255,255,.75);
+ background:rgba(255,255,255,.90);
 
  backdrop-filter:blur(20px);
 
@@ -43,22 +43,7 @@
 
 
 
-.logo{
-
- display:flex;
-
- align-items:center;
-
- gap:8px;
-
-
- font-size:18px;
-
- font-weight:800;
-
- white-space:nowrap;
-
-}
+/* LOGO */
 
 .logo{
 
@@ -67,6 +52,7 @@
  align-items:center;
 
  gap:8px;
+
 
  font-size:18px;
 
@@ -81,39 +67,142 @@
 
  text-decoration:none;
 
- color:inherit;
+ color:#1d1b20;
 
 }
 
 
+
+/* LINKS DESKTOP */
+
 .links{
+
+ position:absolute;
+
+ left:50%;
+
+ transform:translateX(-50%);
+
 
  display:flex;
 
  align-items:center;
 
- gap:32px;
+ justify-content:center;
+
+
+ gap:40px;
+
+}
+
+
+
+.links a{
+
+ position:relative;
+
+
+ text-decoration:none;
+
+
+ color:#49454f;
 
 
  font-size:15px;
 
- color:#49454f;
-
-}
-
-
-
-.links span{
 
  cursor:pointer;
 
+
+ transition:.3s;
+
+
+ padding-bottom:8px;
+
 }
 
 
 
+.links a::after{
+
+ content:"";
+
+
+ position:absolute;
+
+
+ bottom:0;
+
+
+ left:50%;
+
+
+ width:0;
+
+
+ height:3px;
+
+
+ background:#6750a4;
+
+
+ border-radius:20px;
+
+
+ transform:translateX(-50%);
+
+
+ transition:.3s ease;
+
+}
+
+
+
+.links a:hover{
+
+ color:#6750a4;
+
+}
+
+
+
+.links a:hover::after{
+
+ width:100%;
+
+}
+
+
+
+/* sessão atual */
+
+.links .active{
+
+ color:#6750a4;
+
+ font-weight:700;
+
+}
+
+
+
+.links .active::after{
+
+ width:100%;
+
+}
+
+
+
+/* BOTÃO DOWNLOAD */
+
 .button{
 
- border:none;
+ display:inline-flex;
+
+ align-items:center;
+
+ justify-content:center;
 
 
  padding:12px 26px;
@@ -130,13 +219,20 @@
 
  font-size:14px;
 
+
+ font-weight:600;
+
+
+ text-decoration:none;
+
+
  cursor:pointer;
 
 }
 
 
 
-/* botão mobile */
+/* BOTÃO MENU MOBILE */
 
 .menu{
 
@@ -145,7 +241,9 @@
 
  border:0;
 
+
  width:48px;
+
 
  height:48px;
 
@@ -164,6 +262,7 @@
 
  align-items:center;
 
+
  justify-content:center;
 
 
@@ -173,7 +272,7 @@
 
 
 
-/* menu fechado */
+/* MENU MOBILE */
 
 .mobileMenu{
 
@@ -187,12 +286,45 @@
 
  text-decoration:none;
 
+
  color:#1d1b20;
 
 
  font-size:22px;
 
+
  font-weight:700;
+
+}
+
+
+
+/* BOTÃO MOBILE */
+
+.mobileButton{
+
+ border:0;
+
+
+ padding:14px;
+
+
+ border-radius:50px;
+
+
+ background:#6750a4;
+
+
+ color:white !important;
+
+
+ font-size:15px !important;
+
+
+ font-weight:600 !important;
+
+
+ text-align:center;
 
 }
 
@@ -233,7 +365,7 @@
 
 
 
-/* menu aberto */
+/* MENU ABERTO */
 
 .mobileMenu{
 
@@ -248,6 +380,7 @@
 
 
  left:0;
+
 
  right:0;
 
@@ -269,6 +402,7 @@
 
  backdrop-filter:blur(20px);
 
+
  -webkit-backdrop-filter:blur(20px);
 
 
@@ -284,29 +418,11 @@
 
 
 
-.mobileMenu button{
+.mobileMenu a{
 
+ font-size:22px;
 
- border:0;
-
-
- padding:14px;
-
-
- border-radius:50px;
-
-
- background:#6750a4;
-
-
- color:white;
-
-
- font-size:15px;
-
-
- cursor:pointer;
-
+ font-weight:700;
 
 }
 

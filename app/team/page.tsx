@@ -1,19 +1,35 @@
-import Team from "@/components/Team/Team";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 
-export default function TeamPage(){
+import Team from "@/components/Team/Team";
 
- return(
-  <>
-   <Navbar/>
+import {
+ getTeam
+} from "@/lib/api";
 
-   <main>
-    <Team/>
-   </main>
 
-   <Footer/>
-  </>
- )
+export default async function TeamPage(){
+
+
+const team = await getTeam();
+
+
+return(
+<>
+
+<Navbar/>
+
+<main>
+
+<Team
+ members={team}
+/>
+
+</main>
+
+<Footer/>
+
+</>
+)
 
 }

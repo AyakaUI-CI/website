@@ -1,5 +1,7 @@
 import styles from "./CTA.module.css";
 
+import Link from "next/link";
+
 export default function CTA(){
 
  return (
@@ -15,10 +17,12 @@ export default function CTA(){
     Get the latest build for your device
    </p>
 
-
-   <button>
-    Download now
-   </button>
+<Link 
+ href="/devices"
+ className={styles.button}
+>
+ Download now
+</Link>
 
 
   </section>

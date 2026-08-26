@@ -111,6 +111,21 @@
 
 
 .button{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+
+ padding:12px 26px;
+
+ border-radius:50px;
+
+ background:#6750a4;
+ color:white;
+
+ text-decoration:none;
+}
+
+.button{
  border:0;
 
  border-radius:50px;

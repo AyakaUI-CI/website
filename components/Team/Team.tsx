@@ -10,135 +10,158 @@ import {
 import styles from "./Team.module.css";
 
 
-const members = [
- {
-  name:"Henri",
-  role:"Founder & Maintainer",
-  github:"whyakari",
-  telegram:"#",
- },
- {
-  name:"Linus Torvalds",
-  role:"Developer",
-  github:"torvalds",
-  telegram:"#",
- },
- {
-  name:"Melody",
-  role:"Community Manager",
-  github:"Melody",
-  telegram:"#",
- }
-];
+export default function Team({
+
+ members
+
+}:{
+ members:any[]
+}){
 
 
-export default function Team(){
+return (
 
- return(
-  <section className={styles.team}>
-
-
-   <span className={styles.label}>
-    Our Team
-   </span>
+<section className={styles.team}>
 
 
-   <h2 className={styles.title}>
-    The people behind
-    <span> AyakaUI</span>
-   </h2>
-
-
-   <p className={styles.subtitle}>
-    These are the people who make
-    AyakaUI possible. Thank you!
-   </p>
+<span className={styles.label}>
+ Our Team
+</span>
 
 
 
-   <div className={styles.list}>
+<h2 className={styles.title}>
+ The people behind
+ <span> AyakaUI</span>
+</h2>
 
-    {
-     members.map((member,index)=>(
 
-      <motion.div
 
-       key={member.name}
+<p className={styles.subtitle}>
+ These are the people who make
+ AyakaUI possible. Thank you!
+</p>
 
-       className={styles.card}
 
-       initial={{
-        opacity:0,
-        y:40
-       }}
 
-       whileInView={{
-        opacity:1,
-        y:0
-       }}
+<div className={styles.list}>
 
-       transition={{
-        duration:.5,
-        delay:index*.15
-       }}
 
-       viewport={{
-        once:true
-       }}
+{
+ (members || []).map(
+  (member,index)=>(
+
+   <motion.div
+
+    key={member.github}
+
+    className={styles.card}
+
+    initial={{
+     opacity:0,
+     y:40
+    }}
+
+    whileInView={{
+     opacity:1,
+     y:0
+    }}
+
+    transition={{
+     duration:.5,
+     delay:index*.15
+    }}
+
+    viewport={{
+     once:true
+    }}
+
+   >
+
+
+    <img
+
+     src={`https://github.com/${member.github}.png`}
+
+     alt={member.display_name}
+
+    />
+
+
+
+    <div className={styles.info}>
+
+
+     <h3>
+      {member.display_name}
+     </h3>
+
+
+
+     <p>
+      {member.role || "Developer"}
+     </p>
+
+
+
+     <div className={styles.social}>
+
+
+      <a
+
+       href={`https://github.com/${member.github}`}
+
+       target="_blank"
+
+       rel="noopener noreferrer"
 
       >
 
+       <FaGithub/>
 
-       <img
-        src={`https://github.com/${member.github}.png`}
-        alt={member.name}
-       />
+      </a>
 
 
 
-       <div className={styles.info}>
+      {
+       member.telegram && (
+
+        <a
+
+         href={`https://t.me/${member.telegram}`}
+
+         target="_blank"
+
+         rel="noopener noreferrer"
+
+        >
+
+         <FaTelegram/>
+
+        </a>
+
+       )
+      }
 
 
-        <h3>
-         {member.name}
-        </h3>
+     </div>
 
 
-        <p>
-         {member.role}
-        </p>
+    </div>
 
 
+   </motion.div>
 
-        <div className={styles.social}>
-
-
-         <a href={`https://github.com/${member.github}`}>
-          <FaGithub/>
-         </a>
-
-
-         <a href={member.telegram}>
-          <FaTelegram/>
-         </a>
-
-
-        </div>
-
-
-       </div>
-
-
-      </motion.div>
-
-     ))
-    }
-
-
-   </div>
-
-
-  </section>
+  )
  )
+}
+
+
+</div>
+
+
+</section>
+
+)
 
 }
