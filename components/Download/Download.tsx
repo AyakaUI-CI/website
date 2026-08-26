@@ -2,7 +2,7 @@
 
 import styles from "./Download.module.css";
 import Accordion from "./Accordion";
-
+import ReactMarkdown from "react-markdown";
 
 export default function Download({
 
@@ -10,8 +10,9 @@ export default function Download({
 
  build,
 
- instructions
+ instructions,
 
+ additionalImages
 }:{
 
  device:any;
@@ -19,6 +20,8 @@ export default function Download({
  build:any;
 
  instructions:string|null;
+
+additionalImages:any[];
 
 }){
 
@@ -244,36 +247,55 @@ title="Latest Build Info"
 
 >
 
-<p>
 
-Version:
-{" "}
-{build?.version}
-
-</p>
+<div className={styles.buildInfo}>
 
 
-<p>
+<div className={styles.buildItem}>
 
-Filename:
-{" "}
-{build?.filename}
+<span>
+Version
+</span>
 
-</p>
+<strong>
+{build?.version || "Unknown"}
+</strong>
+
+</div>
 
 
 
-<p>
+<div className={styles.buildItem}>
 
-Size:
-{" "}
+<span>
+Filename
+</span>
+
+<strong className={styles.filename}>
+{build?.filename || "Unknown"}
+</strong>
+
+</div>
+
+
+
+<div className={styles.buildItem}>
+
+<span>
+Size
+</span>
+
+<strong>
 {size}
+</strong>
 
-</p>
+</div>
+
+
+</div>
 
 
 </Accordion>
-
 
 
 
@@ -285,30 +307,152 @@ title="Device Information"
 >
 
 
-<ul>
-
-<li>
-Codename: {device.codename}
-</li>
+<div className={styles.deviceInfo}>
 
 
-<li>
-Vendor: {device.vendor}
-</li>
+<div className={styles.infoItem}>
+
+<span>
+Codename
+</span>
+
+<strong>
+{device.codename}
+</strong>
+
+</div>
 
 
-<li>
-Model: {device.model}
-</li>
+
+<div className={styles.infoItem}>
+
+<span>
+Vendor
+</span>
+
+<strong>
+{device.vendor}
+</strong>
+
+</div>
 
 
-</ul>
+
+<div className={styles.infoItem}>
+
+<span>
+Model
+</span>
+
+<strong>
+{device.model}
+</strong>
+
+</div>
+
+
+
+<div className={styles.infoItem}>
+
+<span>
+Release
+</span>
+
+<strong>
+{device.release}
+</strong>
+
+</div>
+
+
+</div>
 
 
 </Accordion>
 
 
+{
+additionalImages?.length > 0 && (
 
+<Accordion
+title="Additional Images"
+>
+
+
+<div className={styles.packages}>
+
+{
+additionalImages.map(
+
+(image:any)=>(
+
+<div
+
+key={image.name}
+
+className={styles.package}
+
+>
+
+
+<div className={styles.packageIcon}>
+↓
+</div>
+
+
+<div className={styles.packageInfo}>
+
+
+<span>
+
+{
+image.name
+.replace(".img","")
+.replace("_"," ")
+}
+
+</span>
+
+
+<p>
+
+{image.name}
+
+</p>
+
+
+</div>
+
+
+
+<a
+
+href={image.url}
+
+className={styles.packageButton}
+
+>
+
+Download
+
+</a>
+
+
+</div>
+
+)
+
+)
+
+}
+
+</div>
+
+
+</Accordion>
+
+)
+}
 
 
 <Accordion
@@ -318,7 +462,8 @@ title="Maintainers"
 >
 
 
-<ul>
+<div className={styles.maintainers}>
+
 
 {
 
@@ -326,11 +471,49 @@ device.maintainer?.map(
 
 (m:any)=>(
 
-<li key={m.github}>
+
+<div
+
+key={m.github}
+
+className={styles.maintainerCard}
+
+>
+
+
+<img
+
+src={`https://github.com/${m.github}.png`}
+
+alt={m.display_name}
+
+/>
+
+
+
+<div className={styles.maintainerInfo}>
+
+
+<strong>
 
 {m.display_name}
 
-</li>
+</strong>
+
+
+
+<span>
+
+Maintainer
+
+</span>
+
+
+</div>
+
+
+</div>
+
 
 )
 
@@ -338,12 +521,11 @@ device.maintainer?.map(
 
 }
 
-</ul>
+
+</div>
 
 
 </Accordion>
-
-
 
 
 
@@ -351,15 +533,19 @@ device.maintainer?.map(
 title="Instructions"
 >
 
-<pre className={styles.instructions}>
+<div className={styles.instructions}>
+
+<ReactMarkdown>
 
 {
 instructions ||
 "Instructions unavailable"
 }
 
-</pre>
+</ReactMarkdown>
 
+
+</div>
 
 </Accordion>
 

@@ -28,6 +28,78 @@ async function safeJson(
 
 }
 
+export async function getAdditionalImages(
+ buildUrl:string
+){
+
+ if(!buildUrl){
+  return [];
+ }
+
+
+const base =
+ buildUrl.substring(
+  0,
+  buildUrl.lastIndexOf("/")
+ );
+
+
+const images = [
+ "boot.img",
+ "vendor_boot.img",
+ "dtbo.img",
+ "init_boot.img",
+ "recovery.img"
+];
+
+
+const result:any[] = [];
+
+
+for(const image of images){
+
+
+ const url =
+ `${base}/${image}`;
+
+
+ try{
+
+
+  const res =
+  await fetch(
+   url,
+   {
+    method:"HEAD",
+    cache:"no-store"
+   }
+  );
+
+
+  if(res.ok){
+
+   result.push({
+
+    name:image,
+
+    url
+
+   });
+
+  }
+
+
+ }catch{
+
+ }
+
+
+}
+
+
+return result;
+
+}
 
 
 function validateDevice(

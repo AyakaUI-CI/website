@@ -6,7 +6,8 @@ import Download from "@/components/Download/Download";
 import {
  getDevice,
  getUpdater,
- getInstructions
+ getInstructions,
+ getAdditionalImages
 } from "@/lib/api";
 
 export default async function Page({
@@ -39,7 +40,14 @@ const device =
 const updater =
  await getUpdater(codename);
 
+const build =
+ updater?.response?.[0];
 
+
+const additionalImages =
+ await getAdditionalImages(
+  build?.url
+ );
 
 if(!device){
 
@@ -80,14 +88,13 @@ return(
 
 device={device}
 
-build={
- updater?.response?.[0]
-}
+build={build}
 
 instructions={instructions}
 
-/>
+additionalImages={additionalImages}
 
+/>
 </main>
 
 
