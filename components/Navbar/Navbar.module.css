@@ -1,0 +1,314 @@
+.nav{
+
+ position:fixed;
+
+ top:24px;
+
+ left:50%;
+
+ transform:translateX(-50%);
+
+
+ width:calc(100% - 48px);
+
+ max-width:1200px;
+
+
+ height:64px;
+
+
+ padding:0 24px;
+
+
+ display:flex;
+
+ align-items:center;
+
+ justify-content:space-between;
+
+
+ border-radius:40px;
+
+
+ background:rgba(255,255,255,.75);
+
+ backdrop-filter:blur(20px);
+
+ -webkit-backdrop-filter:blur(20px);
+
+
+ z-index:20;
+
+}
+
+
+
+.logo{
+
+ display:flex;
+
+ align-items:center;
+
+ gap:8px;
+
+
+ font-size:18px;
+
+ font-weight:800;
+
+ white-space:nowrap;
+
+}
+
+.logo{
+
+ display:flex;
+
+ align-items:center;
+
+ gap:8px;
+
+ font-size:18px;
+
+ font-weight:800;
+
+ white-space:nowrap;
+
+}
+
+
+.logo a{
+
+ text-decoration:none;
+
+ color:inherit;
+
+}
+
+
+.links{
+
+ display:flex;
+
+ align-items:center;
+
+ gap:32px;
+
+
+ font-size:15px;
+
+ color:#49454f;
+
+}
+
+
+
+.links span{
+
+ cursor:pointer;
+
+}
+
+
+
+.button{
+
+ border:none;
+
+
+ padding:12px 26px;
+
+
+ border-radius:50px;
+
+
+ background:#6750a4;
+
+
+ color:white;
+
+
+ font-size:14px;
+
+ cursor:pointer;
+
+}
+
+
+
+/* botão mobile */
+
+.menu{
+
+ display:none;
+
+
+ border:0;
+
+ width:48px;
+
+ height:48px;
+
+
+ border-radius:50%;
+
+
+ background:#eaddff;
+
+
+ color:#1d1b20;
+
+
+ font-size:22px;
+
+
+ align-items:center;
+
+ justify-content:center;
+
+
+ cursor:pointer;
+
+}
+
+
+
+/* menu fechado */
+
+.mobileMenu{
+
+ display:none;
+
+}
+
+
+
+.mobileMenu a{
+
+ text-decoration:none;
+
+ color:#1d1b20;
+
+
+ font-size:22px;
+
+ font-weight:700;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+
+.nav{
+
+ width:calc(100% - 32px);
+
+ height:64px;
+
+
+ padding:0 20px;
+
+}
+
+
+
+.links,
+.button{
+
+ display:none;
+
+}
+
+
+
+.menu{
+
+ display:flex;
+
+}
+
+
+
+/* menu aberto */
+
+.mobileMenu{
+
+
+ display:flex;
+
+
+ position:absolute;
+
+
+ top:78px;
+
+
+ left:0;
+
+ right:0;
+
+
+ width:100%;
+
+
+ padding:28px;
+
+
+ flex-direction:column;
+
+
+ gap:22px;
+
+
+ background:#fffbfe;
+
+
+ backdrop-filter:blur(20px);
+
+ -webkit-backdrop-filter:blur(20px);
+
+
+ border-radius:32px;
+
+
+ box-shadow:
+
+ 0 20px 60px rgba(103,80,164,.15);
+
+
+}
+
+
+
+.mobileMenu button{
+
+
+ border:0;
+
+
+ padding:14px;
+
+
+ border-radius:50px;
+
+
+ background:#6750a4;
+
+
+ color:white;
+
+
+ font-size:15px;
+
+
+ cursor:pointer;
+
+
+}
+
+
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Moto G84 5G",
+    "codename": "bangkk",
+    "brand": "Motorola",
+    "android": "Android 17",
+    "status": "Official",
+    "maintainer": "Henri",
+    "image": "/devices/bangkk.webp"
+  },
+  {
+    "name": "Moto G73 5G",
+    "codename": "pisa",
+    "brand": "Motorola",
+    "android": "Android 17",
+    "status": "Official",
+    "maintainer": "Henri",
+    "image": "/devices/pisa.webp"
+  }
+]

@@ -1,0 +1,143 @@
+.cta{
+
+ margin:20px 5%;
+
+ height:220px;
+
+ border-radius:40px;
+
+ overflow:hidden;
+
+ position:relative;
+
+ display:flex;
+
+ flex-direction:column;
+
+ align-items:center;
+
+ justify-content:center;
+
+ text-align:center;
+
+ color:white;
+
+
+ background-image:
+ linear-gradient(
+  rgba(103,80,164,.55),
+  rgba(103,80,164,.55)
+ ),
+ url("/ayaka/cta-bg.webp");
+
+
+ background-size:cover;
+
+ background-position:center;
+
+
+}
+
+
+/* camada de blur */
+
+.cta::before{
+
+ content:"";
+
+ position:absolute;
+
+ inset:0;
+
+ backdrop-filter:blur(2px);
+
+}
+
+
+/* conteúdo */
+
+.cta h2,
+.cta p,
+.cta button{
+
+ position:relative;
+
+ z-index:2;
+
+}
+
+
+.cta h2{
+
+ font-size:32px;
+
+ font-weight:800;
+
+ margin:0 0 8px;
+
+}
+
+
+.cta p{
+
+ margin:0 0 25px;
+
+ font-size:15px;
+
+ opacity:.9;
+
+}
+
+
+
+.cta button{
+
+ border:0;
+
+ padding:14px 34px;
+
+ border-radius:50px;
+
+ background:white;
+
+ color:#6750a4;
+
+ font-size:16px;
+
+ font-weight:700;
+
+ cursor:pointer;
+
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+ .cta{
+
+  margin:40px 32px;
+
+  height:240px;
+
+  border-radius:36px;
+
+ }
+
+
+ .cta h2{
+
+  font-size:26px;
+
+  max-width:300px;
+
+ }
+
+
+ .cta p{
+
+  font-size:14px;
+
+ }
+
+}

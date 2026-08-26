@@ -1,0 +1,294 @@
+.hero{
+ min-height:650px;
+ padding:100px 5% 40px;
+ display:flex;
+ align-items:center;
+ background:#fffbfe;
+}
+
+.card{
+ width:100%;
+ min-height:700px;
+
+ border-radius:48px;
+ overflow:hidden;
+
+ position:relative;
+
+ background:
+ radial-gradient(
+  circle at 75% 45%,
+  rgba(208,188,255,.8),
+  transparent 45%
+ ),
+ linear-gradient(
+  120deg,
+  #fffbfe,
+  #f5edff
+ );
+}
+
+.card::after{
+ content:"";
+
+ position:absolute;
+
+ inset:0;
+
+ background:
+ linear-gradient(
+  180deg,
+  rgba(255,251,254,.15),
+  rgba(208,188,255,.25)
+ );
+
+ backdrop-filter:blur(4px);
+
+ z-index:2;
+
+ pointer-events:none;
+}
+
+
+/* conteúdo */
+
+.content{
+ position:relative;
+ z-index:3;
+
+ padding:90px;
+ max-width:650px;
+}
+
+
+.badge{
+ display:inline-block;
+
+ padding:10px 20px;
+
+ border-radius:30px;
+
+ background:#eaddff;
+
+ font-size:16px;
+}
+
+
+.title{
+ font-size:76px;
+
+ margin:30px 0;
+
+ font-weight:900;
+
+ line-height:1;
+}
+
+
+.title span{
+ color:#6750a4;
+}
+
+
+.text{
+ font-size:24px;
+
+ line-height:1.4;
+
+ color:#625b71;
+}
+
+
+/* botões */
+
+.actions{
+ display:flex;
+
+ gap:15px;
+
+ margin-top:30px;
+}
+
+
+.button{
+ border:0;
+
+ border-radius:50px;
+
+ padding:16px 30px;
+
+ background:#6750a4;
+
+ color:white;
+
+ font-size:16px;
+
+ cursor:pointer;
+}
+
+
+.secondary{
+ border:0;
+
+ padding:16px 30px;
+
+ border-radius:50px;
+
+ background:white;
+
+ color:#6750a4;
+
+ font-size:16px;
+
+ cursor:pointer;
+}
+
+
+/* personagem */
+
+.ayaka{
+ position:absolute;
+
+ right:-20px;
+
+ bottom:-40px;
+
+ width:min(55%,700px);
+
+ z-index:1;
+
+ filter:
+ drop-shadow(
+  0 30px 80px rgba(103,80,164,.35)
+ );
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+
+.hero{
+ padding:80px 16px;
+}
+
+
+.card{
+
+ min-height:620px;
+
+ border-radius:60px;
+
+ background:
+ radial-gradient(
+  circle at 75% 45%,
+  rgba(208,188,255,.8),
+  transparent 55%
+ ),
+ linear-gradient(
+  120deg,
+  #fffbfe,
+  #f5edff
+ );
+
+}
+
+
+/* texto */
+
+.content{
+
+ padding:55px 32px;
+
+ max-width:none;
+
+}
+
+
+.badge{
+
+ padding:10px 20px;
+
+ font-size:16px;
+
+}
+
+
+.title{
+
+ font-size:56px;
+
+ margin:30px 0;
+
+}
+
+
+.text{
+
+ font-size:21px;
+
+ line-height:1.4;
+
+}
+
+
+/* botões */
+
+.actions{
+
+ display:flex;
+
+ flex-direction:row;
+
+ gap:12px;
+
+}
+
+
+.button,
+.secondary{
+
+ padding:15px 24px;
+
+ font-size:16px;
+
+ white-space:nowrap;
+
+}
+
+
+
+/* ayaka */
+
+.ayaka{
+
+ width:620px;
+
+ max-width:none;
+
+ right:-240px;
+
+ bottom:-80px;
+
+ opacity:.9;
+
+}
+
+
+}
+
+.about{
+ padding:60px 8%;
+}
+
+@media(max-width:768px){
+
+.hero{
+ padding:100px 16px 0;
+ min-height:0;
+ height:auto;
+}
+
+}
