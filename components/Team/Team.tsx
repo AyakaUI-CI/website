@@ -7,6 +7,10 @@ import {
  FaTelegram
 } from "react-icons/fa";
 
+import {
+ SiXdadevelopers
+} from "react-icons/si";
+
 import styles from "./Team.module.css";
 
 
@@ -139,6 +143,26 @@ return (
        )
       }
 
+
+{
+ member.xda && (
+
+  <a
+
+   href={member.xda}
+
+   target="_blank"
+
+   rel="noopener noreferrer"
+
+  >
+
+   <SiXdadevelopers/>
+
+  </a>
+
+ )
+}
 
      </div>
 
