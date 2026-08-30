@@ -96,13 +96,9 @@ return (
       {member.display_name}
      </h3>
 
-
-
      <p>
-      {member.role || "Developer"}
+     {member.developer || member.role || "AyakaUI Contributor"}
      </p>
-
-
 
      <div className={styles.social}>
 
