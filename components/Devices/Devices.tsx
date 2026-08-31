@@ -129,7 +129,7 @@ return(
     filteredDevices
 
     .filter(
-     device=>device.active
+     device=>device.active !== false
     )
 
     .map(
@@ -146,14 +146,11 @@ return(
 
 
 
-       initial={{
-        opacity:0,
-        y:40
-       }}
+       initial={false}
 
 
 
-       whileInView={{
+       animate={{
         opacity:1,
         y:0
        }}
@@ -163,12 +160,6 @@ return(
        transition={{
         duration:.5,
         delay:index*.1
-       }}
-
-
-
-       viewport={{
-        once:true
        }}
 
 

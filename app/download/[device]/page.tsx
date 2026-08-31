@@ -45,7 +45,10 @@ const build =
 
 
 const additionalImages =
- await getAdditionalImages(
+ Array.isArray(build?.additional_images) &&
+ build.additional_images.length > 0
+ ? build.additional_images
+ : await getAdditionalImages(
   build?.url
  );
 

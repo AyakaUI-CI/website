@@ -163,7 +163,14 @@ export async function getDevices(){
 
 
 
- if(!data || !Array.isArray(data.devices)){
+ const devices =
+ Array.isArray(data)
+ ? data
+ : data?.devices;
+
+
+
+ if(!Array.isArray(devices)){
 
   console.error(
    "[AyakaUI API] Invalid devices.json structure"
@@ -178,7 +185,9 @@ export async function getDevices(){
 
 
 
- return data;
+ return {
+  devices
+ };
 
 
 }
@@ -259,6 +268,47 @@ export async function getDevice(
 
 
 
+function normalizeBuild(
+ entry:any
+){
+
+ if(!entry)
+  return null;
+
+
+ // Novo formato: metadata do zip vem dentro de "files"
+ if(Array.isArray(entry.files)){
+
+  const zip =
+   entry.files.find(
+    (f:any)=>f.filename?.endsWith(".zip")
+   ) || entry.files[0];
+
+
+  if(!zip)
+   return null;
+
+
+  return {
+   ...entry,
+   filename:zip.filename,
+   url:zip.url,
+   size:zip.size,
+   sha256:zip.sha256,
+   os_patch_level:zip.os_patch_level,
+   os_sdk_level:zip.os_sdk_level
+  };
+
+ }
+
+
+ // Formato antigo: já vem tudo solto no objeto
+ return entry;
+
+}
+
+
+
 export async function getUpdater(
  codename:string
 ){
@@ -302,10 +352,14 @@ export async function getUpdater(
 
 
 
- if(
-  !data ||
-  !Array.isArray(data.response)
- ){
+ const list =
+ Array.isArray(data)
+ ? data
+ : data?.response;
+
+
+
+ if(!Array.isArray(list)){
 
   console.error(
 
@@ -320,7 +374,11 @@ export async function getUpdater(
 
 
 
- return data;
+ return {
+  response:list
+   .map(normalizeBuild)
+   .filter(Boolean)
+ };
 
 
 }
