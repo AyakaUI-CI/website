@@ -2,7 +2,7 @@
 
  padding:120px 8%;
 
- background:#fffbfe;
+ background:var(--surface);
 
  text-align:center;
 
@@ -11,7 +11,7 @@
 
 .label{
 
- color:#6750a4;
+ color:var(--primary);
 
  font-size:18px;
 
@@ -37,7 +37,7 @@
 
 .title span{
 
- color:#6750a4;
+ color:var(--primary);
 
 }
 
@@ -47,7 +47,7 @@
 
  font-size:22px;
 
- color:#625b71;
+ color:var(--secondary);
 
  max-width:650px;
 
@@ -92,12 +92,12 @@
  border-radius:32px;
 
  background:
- rgba(255,255,255,.7);
+ rgba(var(--surface-rgb),.7);
 
  backdrop-filter:blur(20px);
 
  box-shadow:
- 0 20px 60px rgba(103,80,164,.12);
+ 0 20px 60px rgba(var(--primary-rgb),.12);
 
  text-align:left;
 
@@ -133,7 +133,7 @@
 
  margin:5px 0 15px;
 
- color:#79747e;
+ color:var(--outline);
 
  font-size:18px;
 
@@ -153,7 +153,7 @@
 
 .social a{
 
- color:#6750a4;
+ color:var(--primary);
 
  font-size:25px;
 

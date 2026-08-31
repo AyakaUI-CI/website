@@ -3,7 +3,7 @@
  padding:100px 5% 40px;
  display:flex;
  align-items:center;
- background:#fffbfe;
+ background:var(--surface);
 }
 
 .card{
@@ -18,13 +18,13 @@
  background:
  radial-gradient(
   circle at 75% 45%,
-  rgba(208,188,255,.8),
+  rgba(var(--primary-container-rgb),.8),
   transparent 45%
  ),
  linear-gradient(
   120deg,
-  #fffbfe,
-  #f5edff
+  var(--surface),
+  var(--surface-container-high)
  );
 }
 
@@ -38,8 +38,8 @@
  background:
  linear-gradient(
   180deg,
-  rgba(255,251,254,.15),
-  rgba(208,188,255,.25)
+  rgba(var(--surface-rgb),.15),
+  rgba(var(--primary-container-rgb),.25)
  );
 
  backdrop-filter:blur(4px);
@@ -68,7 +68,7 @@
 
  border-radius:30px;
 
- background:#eaddff;
+ background:var(--primary-container);
 
  font-size:16px;
 }
@@ -86,7 +86,7 @@
 
 
 .title span{
- color:#6750a4;
+ color:var(--primary);
 }
 
 
@@ -95,7 +95,7 @@
 
  line-height:1.4;
 
- color:#625b71;
+ color:var(--secondary);
 }
 
 
@@ -119,8 +119,8 @@
 
  border-radius:50px;
 
- background:#6750a4;
- color:white;
+ background:var(--primary);
+ color:var(--on-primary);
 
  text-decoration:none;
 }
@@ -132,9 +132,9 @@
 
  padding:16px 30px;
 
- background:#6750a4;
+ background:var(--primary);
 
- color:white;
+ color:var(--on-primary);
 
  font-size:16px;
 
@@ -149,9 +149,9 @@
 
  border-radius:50px;
 
- background:white;
+ background:var(--surface);
 
- color:#6750a4;
+ color:var(--primary);
 
  font-size:16px;
 
@@ -174,7 +174,7 @@
 
  filter:
  drop-shadow(
-  0 30px 80px rgba(103,80,164,.35)
+  0 30px 80px rgba(var(--primary-rgb),.35)
  );
 }
 
@@ -199,13 +199,13 @@
  background:
  radial-gradient(
   circle at 75% 45%,
-  rgba(208,188,255,.8),
+  rgba(var(--primary-container-rgb),.8),
   transparent 55%
  ),
  linear-gradient(
   120deg,
-  #fffbfe,
-  #f5edff
+  var(--surface),
+  var(--surface-container-high)
  );
 
 }

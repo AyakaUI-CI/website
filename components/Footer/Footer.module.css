@@ -4,9 +4,9 @@
 
  text-align:center;
 
- background:#fffbfe;
+ background:var(--surface);
 
- color:#79747e;
+ color:var(--outline);
 
 }
 
@@ -17,7 +17,7 @@
 
  font-weight:800;
 
- color:#1d1b20;
+ color:var(--on-surface);
 
  margin-bottom:15px;
 
@@ -63,9 +63,9 @@
 
  justify-content:center;
 
- background:#eaddff;
+ background:var(--primary-container);
 
- color:#6750a4;
+ color:var(--primary);
 
  transition:.3s;
 
@@ -85,9 +85,9 @@
 
 .social a:hover{
 
- background:#6750a4;
+ background:var(--primary);
 
- color:white;
+ color:var(--on-primary);
 
  transform:translateY(-4px);
 

@@ -1,6 +1,6 @@
 .box{
 
-background:#fffbfe;
+background:var(--surface);
 
 border-radius:28px;
 
@@ -9,7 +9,7 @@ margin-bottom:16px;
 overflow:hidden;
 
 box-shadow:
-0 10px 30px rgba(103,80,164,.08);
+0 10px 30px rgba(var(--primary-rgb),.08);
 
 }
 
@@ -32,7 +32,7 @@ font-size:20px;
 
 font-weight:700;
 
-color:#1d1b20;
+color:var(--on-surface);
 
 cursor:pointer;
 
@@ -44,7 +44,7 @@ cursor:pointer;
 
 padding:0 24px 24px;
 
-color:#625b71;
+color:var(--secondary);
 
 font-size:16px;
 

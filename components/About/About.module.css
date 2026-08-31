@@ -13,7 +13,7 @@ border-radius:32px;
 
 
 background:
-rgba(255,251,254,.75);
+rgba(var(--surface-rgb),.75);
 
 
 backdrop-filter:blur(20px);
@@ -22,7 +22,7 @@ backdrop-filter:blur(20px);
 
 
 box-shadow:
-0 20px 60px rgba(103,80,164,.18);
+0 20px 60px rgba(var(--primary-rgb),.18);
 
 
 z-index:10;
@@ -33,7 +33,7 @@ z-index:10;
 
 .label{
 
-color:#6750a4;
+color:var(--primary);
 
 font-size:14px;
 
@@ -59,7 +59,7 @@ font-weight:900;
 
 .title span{
 
-color:#6750a4;
+color:var(--primary);
 
 }
 
@@ -71,7 +71,7 @@ font-size:16px;
 
 line-height:1.5;
 
-color:#625b71;
+color:var(--secondary);
 
 }
 

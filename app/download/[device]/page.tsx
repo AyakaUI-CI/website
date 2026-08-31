@@ -7,7 +7,8 @@ import {
  getDevice,
  getUpdater,
  getInstructions,
- getAdditionalImages
+ getAdditionalImages,
+ getChangelog
 } from "@/lib/api";
 
 export default async function Page({
@@ -51,6 +52,9 @@ const additionalImages =
  : await getAdditionalImages(
   build?.url
  );
+
+const changelog =
+ await getChangelog(codename);
 
 if(!device){
 
@@ -96,6 +100,8 @@ build={build}
 instructions={instructions}
 
 additionalImages={additionalImages}
+
+changelog={changelog}
 
 />
 </main>

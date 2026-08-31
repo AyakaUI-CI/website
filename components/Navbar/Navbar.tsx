@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import styles from "./Navbar.module.css";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "../Theme/ThemeToggle";
 
 export default function Navbar(){
 
@@ -62,7 +63,12 @@ export default function Navbar(){
 
 
 <Link
- href="https://blog-ayaka.vercel.app/"
+ href="/blog"
+ className={
+  pathname.startsWith("/blog")
+  ? styles.active
+  : ""
+ }
 >
  Blog
 </Link>
@@ -71,16 +77,22 @@ export default function Navbar(){
 </div>
 
 
-   {/* BOTÃO MOBILE */}
+   <div className={styles.actions}>
 
-   <button
-    className={styles.menu}
-    onClick={() => setOpen(!open)}
-   >
+    <ThemeToggle />
 
-    {open ? "✕" : "☰"}
+    {/* BOTÃO MOBILE */}
 
-   </button>
+    <button
+     className={styles.menu}
+     onClick={() => setOpen(!open)}
+    >
+
+     {open ? "✕" : "☰"}
+
+    </button>
+
+   </div>
 
 
 
@@ -103,7 +115,7 @@ export default function Navbar(){
      </Link>
 
 
-     <Link href="https://blog-ayaka.vercel.app/">
+     <Link href="/blog">
       Blog
      </Link>
 

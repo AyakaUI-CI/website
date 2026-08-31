@@ -1,8 +1,12 @@
 "use client";
 
+import { useState } from "react";
+
 import styles from "./Download.module.css";
 import Accordion from "./Accordion";
+import Changelog from "./Changelog";
 import ReactMarkdown from "react-markdown";
+import { FaFileAlt } from "react-icons/fa";
 
 export default function Download({
 
@@ -12,7 +16,9 @@ export default function Download({
 
  instructions,
 
- additionalImages
+ additionalImages,
+
+ changelog
 }:{
 
  device:any;
@@ -23,7 +29,13 @@ export default function Download({
 
 additionalImages:any[];
 
+changelog:{date:string;items:string[]}|null;
+
 }){
+
+
+const [changelogOpen,setChangelogOpen] =
+ useState(false);
 
 
 const maintainers =
@@ -167,6 +179,29 @@ build.datetime * 1000
 
 
 <div className={styles.buttons}>
+
+
+{
+
+changelog &&
+
+<button
+
+onClick={
+ ()=>setChangelogOpen(true)
+}
+
+className={styles.secondary}
+
+>
+
+<FaFileAlt/>
+{" "}
+Changelog
+
+</button>
+
+}
 
 
 {
@@ -552,6 +587,25 @@ instructions ||
 
 
 </div>
+
+
+<Changelog
+
+open={changelogOpen}
+
+onClose={
+ ()=>setChangelogOpen(false)
+}
+
+codename={device.codename}
+
+version={build?.version || device.version}
+
+date={changelog?.date}
+
+items={changelog?.items}
+
+/>
 
 
 </section>
